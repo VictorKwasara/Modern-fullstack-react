@@ -36,7 +36,7 @@ describe('creating posts', () => {
     const post = {
       title: 'Only The title',
     }
-    const createdPost = await createdPost(post)
+    const createdPost = await createPost(post)
     expect(createdPost._id).toBeInstanceOf(mongoose.Types.ObjectId)
   })
 })
