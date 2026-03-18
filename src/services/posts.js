@@ -23,3 +23,15 @@ export async function listPostsByAuthor(author, options) {
 export async function listPostsByTag(tags, options) {
   return await listPosts({ tags }, options)
 }
+
+export async function getPostById(postId) {
+  return await Post.findById(postId)
+}
+
+export async function updatePost(postId, { title, author, contents, tags }) {
+  return await Post.finOneAndUpdate(
+    { _id: postId },
+    { $set: { title, author, contents, tags } },
+    { new: true },
+  )
+}
